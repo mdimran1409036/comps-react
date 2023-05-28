@@ -8,14 +8,14 @@ function App() {
   return (
     <div className="flex gap-4 p-1">
       <SideBar />
+      <Route path="/">
+        <DropdownPage />
+      </Route>
       <Route path="/accordion">
         <AccordionPage />
       </Route>
       <Route path="/button">
         <ButtonPage />
-      </Route>
-      <Route path="/dropdown">
-        <DropdownPage />
       </Route>
     </div>
   );

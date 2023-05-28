@@ -1,20 +1,17 @@
 import Link from "./Link";
-import useRouter from "../hooks/useRouter";
 const SideBar = () => {
-  const { currentPath } = useRouter();
+  const links = [
+    { label: "Dropdown", path: "/" },
+    { label: "Accordion", path: "/accordion" },
+    { label: "Button", path: "/button" },
+  ];
 
   return (
-    <ul className="flex flex-col w-48 border gap-4 p-2">
-      {["Accordion", "Button", "Dropdown"].map((link, index) => (
-        <li
-          key={index}
-          className={`cursor-pointer ${
-            currentPath === "/" + link.toLowerCase() &&
-            "pl-2 border-l-2 border-red-500"
-          } `}
-        >
-          <Link to={"/" + link.toLowerCase()}>{link}</Link>
-        </li>
+    <ul className="flex flex-col w-48 border gap-4 p-2 items-start">
+      {links.map((link) => (
+        <Link to={link.path} className="mb-2" key={link.label} active>
+          {link.label}
+        </Link>
       ))}
     </ul>
   );

@@ -1,7 +1,7 @@
-import useRouter from "../hooks/useRouter";
+import useNavigation from "../hooks/useNavigation";
 import PropTypes from "prop-types";
 const Route = ({ path, children }) => {
-  const { currentPath } = useRouter();
+  const { currentPath } = useNavigation();
   if (currentPath === path) {
     return children;
   }
