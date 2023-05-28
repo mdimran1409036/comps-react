@@ -35,7 +35,7 @@ const Dropdown = ({ options, value, onChange }) => {
   ));
 
   return (
-    <div className="w-1/2 mx-auto  border-gray-500 border" ref={dropdown}>
+    <div className="border-gray-500 border" ref={dropdown}>
       <Pannel
         className="flex justify-between "
         onClick={() => setIsOpen((prev) => !prev)}

@@ -4,7 +4,7 @@ const AccordionPannel = ({ item, isExpanded, handleClickOnAccordionPannel }) => 
   return (
     <div
       key={item.id}
-      className=" border-black border w-2/4 mx-auto p-3 bg-green-100 "
+      className=" border-black border mx-auto p-3 bg-green-100 "
     >
       <div
         className="flex justify-between bg-gray-50 p-2 border-b cursor-pointer rounded-t-md"

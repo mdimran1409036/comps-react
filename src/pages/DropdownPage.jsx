@@ -24,7 +24,7 @@ const DropdownPage = () => {
   };
 
   return (
-    <div className="hello">
+    <div className="w-1/2">
       <Dropdown options={colors} onChange={handleColor} value={color} />
       <br />
       <Dropdown options={fruits} onChange={handleFruits} value={fruit} />
