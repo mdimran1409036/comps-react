@@ -1,22 +1,24 @@
 /* eslint-disable react/prop-types */
-const Table = ({ data }) => {
-  const renderedRows = data.map((item) => (
-    <tr key={item.name} className="border-b">
-      <td className="p-3">{item.name}</td>
-      <td className="p-3">
-        <div className={`p-3 m-2 ${item.color}`}></div>
-      </td>
-      <td className="p-3">{item.score}</td>
-    </tr>
+const Table = ({ data, config, keyFn }) => {
+  const renderedHeaders = config.map((column) => (
+    <th key={column.label}>{column.label}</th>
   ));
+  const renderedRows = data.map((rowData) => {
+    const renderedCells = config.map((column) => (
+      <td className="p-3" key={column.label}>``
+        {column.render ? column.render(rowData): null}
+      </td>
+    ));
+    return (
+      <tr key={keyFn(rowData)} className="border-b">
+        {renderedCells}
+      </tr>
+    );
+  });
   return (
     <table className="table-auto border-spacing-2">
       <thead>
-        <tr className="border-b-2">
-          <th>name</th>
-          <th>color</th>
-          <th>score</th>
-        </tr>
+        <tr className="border-b-2">{renderedHeaders}</tr>
       </thead>
       <tbody>{renderedRows}</tbody>
     </table>
@@ -24,4 +26,3 @@ const Table = ({ data }) => {
 };
 
 export default Table;
-
