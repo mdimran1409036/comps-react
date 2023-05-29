@@ -4,9 +4,6 @@ const AccordionPage = () => {
   return (
     <>
       <Accordion />
-      <br />
-      <Accordion />
-    
     </>
   );
 };

@@ -5,6 +5,7 @@ const SideBar = () => {
     { label: "Accordion", path: "/accordion" },
     { label: "Button", path: "/button" },
     { label: "Modal", path: "/modal" },
+    { label: "Table", path: "/table" },
   ];
 
   return (

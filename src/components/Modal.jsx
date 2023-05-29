@@ -10,7 +10,7 @@ const Modal = ({ onClose, children, actionBar }) => {
   const element = (
     <>
       <div
-        className="fixed  inset-0  bg-gray-600 opacity-70  "
+        className="fixed inset-0  bg-gray-600 opacity-80  "
         onClick={() => onClose()}
       ></div>
       <div className="fixed inset-40 p-10 bg-white">
