@@ -1,9 +1,10 @@
-import Link from "./Link";
+import Link from "./Navigation/Link";
 const SideBar = () => {
   const links = [
     { label: "Dropdown", path: "/" },
     { label: "Accordion", path: "/accordion" },
     { label: "Button", path: "/button" },
+    { label: "Modal", path: "/modal" },
   ];
 
   return (

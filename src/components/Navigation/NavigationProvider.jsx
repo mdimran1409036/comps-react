@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import NavigationContext from "../context/navigationContext";
+import NavigationContext from "../../context/navigationContext";
 import { PropTypes } from "prop-types";
 const NavigationProvider = ({ children }) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -10,7 +10,7 @@ const NavigationProvider = ({ children }) => {
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, []);
+  },[]);
 
   const navigate = (to) => {
     window.history.pushState({}, "", to);

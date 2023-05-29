@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
-import useNavigation from "../hooks/useNavigation";
+import useNavigation from "../../hooks/useNavigation";
 import classNames from "classnames";
+
 
 const Link = ({ to, children, className, active}) => {
   const { currentPath, navigate } = useNavigation();
+ 
   const activeClassName = "pl-2 border-l-4 border-blue-500 font-bold";
   const classes = classNames(
     "text-blue-500 cursor-pointer",
