@@ -1,3 +1,14 @@
+## Code in  table component with --optional --sorting added
+
+    1. State to track sorting stuff
+    2. Function to handle click on a header
+        - only hanlde click if sorting enabled
+    3. Rendering headers
+    4. If sorting enabled
+        -Sorting logic
+    5. Rendering rows
+    6. Asseble and return the table
+
 ## Table requirements:
 
     1. variable number of rows
