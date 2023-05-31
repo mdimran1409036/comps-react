@@ -1,23 +1,16 @@
 /* eslint-disable react/prop-types */
-import { TiArrowSortedDown, TiArrowSortedUp } from "react-icons/ti";
-const TableHeader = ({ data, sortBy, onSorting, handleSavingDefaultData, children }) => (
+import { GoArrowSmallUp, GoArrowSmallDown } from "react-icons/go";
+const TableHeader = ({ children, sortOrder }) => (
   <div className="flex items-center space-x-1">
-    <div className="flex flex-col">
-      <TiArrowSortedUp
-        className="cursor-pointer"
-        onClick={() => onSorting(data, "desc", sortBy)}
+    <div className="flex flex-col  space-y-[-8px]">
+      <GoArrowSmallUp
+        className={`cursor-pointer ${sortOrder === "desc" && "hidden"} text-lg`}
       />
-      <TiArrowSortedDown
-        className="cursor-pointer"
-        onClick={() => onSorting(data, "asc", sortBy)}
+      <GoArrowSmallDown
+        className={`cursor-pointer ${sortOrder === "asc" && "hidden" } text-lg`}
       />
     </div>
-    <span
-      className="text-blue-500 cursor-pointer"
-      onClick={() => handleSavingDefaultData()}
-    >
-      {children}
-    </span>
+    <span className=" cursor-pointer">{children}</span>
   </div>
 );
 

@@ -1,13 +1,8 @@
-function getSortValue(object, key) {
-  return object[key];
-}
-
-function getSortedArray(data, order = "asc", key) {
-  const sortOrder = order;
-  const sorted = data.sort((a, b) => {
-    const reverseOrder = sortOrder === "asc" ? 1 : -1;
-    const valueA = getSortValue(a, key);
-    const valueB = getSortValue(b, key);
+function getSortedArray(data, order = "asc", getValue) {
+  const sortedArray = data.sort((a, b) => {
+    const reverseOrder = order === "asc" ? 1 : -1;
+    const valueA = getValue(a);
+    const valueB = getValue(b);
     // handling string sort
     if (typeof valueA === "string") {
       return valueA.localeCompare(valueB) * reverseOrder;
@@ -15,7 +10,7 @@ function getSortedArray(data, order = "asc", key) {
     // dy default a number sort
     return (valueA - valueB) * reverseOrder;
   });
-  return sorted;
+  return sortedArray;
 }
 
 export { getSortedArray };

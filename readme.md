@@ -1,4 +1,10 @@
-## Code in  table component with --optional --sorting added
+## custom hooks: why
+
+    1. Functions that contains some resuable logic
+    2. Custom hooks usually reuse built-in-hooks(like useState, useEffect)
+    3. Usually easiest to extract logic into a hook rather than making a hook first
+
+## Code in table component with --optional --sorting added
 
     1. State to track sorting stuff
     2. Function to handle click on a header

@@ -1,23 +1,14 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+
+import useSort from "../hooks/useSort";
 import Table from "./Table";
+import TableHeader from "./TableHeader";
 
 const SortableTable = (props) => {
-  const [sortOrder, setSortOrder] = useState(null);
-  const [sortBy, setSortBy] = useState(null);
   const { config, data } = props;
-  const handleClick = (label) => {
-    setSortOrder((prev) => {
-      if (prev === null) {
-        return "asc";
-      } else if (prev === "asc") {
-        return "desc";
-      } else if (prev === "desc") {
-        return null;
-      }
-    });
-    setSortBy(label);
-  };
+  const { handleClick, sortOrder, sortedData } = useSort(config, data);
+
+  // updating config file
   const updatedConfig = config.map((column) => {
     if (!column.sortValue) {
       return column;
@@ -29,26 +20,13 @@ const SortableTable = (props) => {
             onClick={() => handleClick(column.label)}
             className="cursor-pointer"
           >
-            {column.label}
+            <TableHeader sortOrder={sortOrder}>{column.label}</TableHeader>
           </th>
         ),
       };
     }
   });
-  let sortedData = data;
-  if (sortOrder && sortBy) {
-    const { sortValue } = config.find((column) => column.label === sortBy);
-    sortedData = [...data].sort((a, b) => {
-      const valueA = sortValue(a);
-      const valueB = sortValue(b);
-      const reverseOrder = sortOrder === "asc" ? 1 : -1;
-      if (typeof valueA === "string") {
-        return valueA.localeCompare(valueB) * reverseOrder;
-      }
-      // dy default a number sort
-      return (valueA - valueB) * reverseOrder;
-    });
-  }
+
   return (
     <div>
       <Table {...props} config={updatedConfig} data={sortedData} />;
