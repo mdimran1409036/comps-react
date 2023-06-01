@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { counterRreducer, types } from "../utility/counterRreducer";
 import Pannel from "../components/Pannel";
 import { produce } from "immer";
+import Title from "../components/Title";
 const initialCount = 0;
 const CounterPage = () => {
   const [state, dispatch] = useReducer(produce(counterRreducer), {
@@ -23,6 +24,7 @@ const CounterPage = () => {
 
   return (
     <Pannel>
+      <Title>useReducer()</Title>
       <h2>Current count: {state.count} </h2>
       <div className="flex space-x-2">
         <Button onClick={handleIncrement}>INCREMENT</Button>

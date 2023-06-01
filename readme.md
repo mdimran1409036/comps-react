@@ -1,3 +1,11 @@
+## Redux:
+
+    click button -> dispatch action -> logging(for debugging)-> reducer -> change state(immer)
+
+    why this pattern is so popular:
+        1. dispatch fynction - central point of initiating any change of state
+        2. logging 
+
 ## useReducer hook
 
     1. Alternative to useState
@@ -7,7 +15,7 @@
     5. Useful when future state values depend on the current state
 
     Rules of reducer function:
-        
+
         i. Whatever is returned from reducer function will be the new state
         ii. if the return value is nothing, state will be undefined
         iii. No async/await, no requests, no promises, no outside variables are allowdd
@@ -15,7 +23,7 @@
 
 
     DESIGN CONSIDERATIONS:
-    
+
         1. Usually makes more sense to stuff logic into the reducer and keep dispatched simple
         2. Less duplicated code if you need to dispatch the same action in multiple places
         3. Part of the goal of reducers is to have a very specific set of ways that state can be changed

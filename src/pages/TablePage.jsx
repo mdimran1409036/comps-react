@@ -2,6 +2,7 @@
 
 import Table from "../components/Table";
 import SortableTable from "../components/SortableTable";
+import Title from "../components/Title";
 
 const data = [
   { name: "Orange", color: "bg-orange-500", price: 500 },
@@ -39,7 +40,9 @@ const TablePage = () => {
   };
   return (
     <div>
+      <Title>Regular table</Title>
       <Table data={data} config={config} keyFn={keyFn} />
+      <Title>Sortable Table</Title>
       <SortableTable data={data} config={config} keyFn={keyFn} />
     </div>
   );
