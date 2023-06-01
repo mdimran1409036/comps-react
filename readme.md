@@ -1,3 +1,25 @@
+## useReducer hook
+
+    1. Alternative to useState
+    2. Produces state
+    3. Changing this state makes component rerender
+    4. Useful when you have several different closely-related pieces of state
+    5. Useful when future state values depend on the current state
+
+    Rules of reducer function:
+        
+        i. Whatever is returned from reducer function will be the new state
+        ii. if the return value is nothing, state will be undefined
+        iii. No async/await, no requests, no promises, no outside variables are allowdd
+        iv. Never mutate state inside reducer functions
+
+
+    DESIGN CONSIDERATIONS:
+    
+        1. Usually makes more sense to stuff logic into the reducer and keep dispatched simple
+        2. Less duplicated code if you need to dispatch the same action in multiple places
+        3. Part of the goal of reducers is to have a very specific set of ways that state can be changed
+
 ## custom hooks: why
 
     1. Functions that contains some resuable logic
